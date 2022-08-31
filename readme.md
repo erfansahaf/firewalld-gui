@@ -1,6 +1,11 @@
 # Firewalld GUI
 This repo offers a web-based GUI for managing firewalld rules such as public ports and forwarded ports.
 
+![image](https://user-images.githubusercontent.com/12012168/187709040-ac06f291-e2dd-43c8-8a1b-ff22f553bb2c.png)
+
+![image](https://user-images.githubusercontent.com/12012168/187709173-9ceeb5e8-6b08-4598-9c97-69f25038e782.png)
+
+
 ## Stack
 This project uses Node.js for server side and html+css (and bootstrap) for visualization.
 
