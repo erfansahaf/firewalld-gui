@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            th, td {
+                padding: 5px 10px;
+            }
+
+            .border {
+                padding: 10px;
+                border: black solid 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mb-5 mt-3">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link <% if (tab == 'forward'){ %>active<% } %>" href="forward">Port Forwarding</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <% if (tab == 'public'){ %>active<% } %>" href="public">Public Ports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reload" tabindex="-1">Reload firewalld</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Firewalld Public Ports</h1>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <form class="border" action="public/create" method="POST">
+                    <h3>Add new rule:</h3>
+                    <div class="form-group">
+                        <label for="src_port">Source Port: </label> 
+                        <input class="form-control" type="text" id="src_port" name="port"/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Protocol </label>
+                        <select class="form-control" name="protocol">
+                            <option value="tcp">TCP</option>
+                            <option value="udp">UDP</option>
+                        </select>
+                    </div>
+                    
+                    <input class="form-control btn btn-success" type="submit" />
+                </form>
+            </div>
+
+            <div class="col-md-12">
+                <h3 class="mt-5">Rules list:</h3>
+                <table border="1" class="table border" >
+                    <tr>
+                        <th>Port</th>
+                        <th>Porotocol</th>
+                        <th>Actions</th>
+                    </tr>
+                    <% list.forEach(function(item, index){ %>
+                        <tr>
+                            <td><%= item.port %></td>
+                            <td><%= item.protocol %></td>
+                            <td><a href=public/delete/<%= index %>><button class="btn btn-danger btn-sm">Delete</button></a></td>
+                        </tr>
+                    <% }); %>
+                </table>
+            </div>
+            
+        </div>
+    </body>
+</html>
