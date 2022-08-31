@@ -5,18 +5,19 @@ This repo offers a web-based GUI for managing firewalld rules such as public por
 This project uses Node.js for server side and html+css (and bootstrap) for visualization.
 
 ## Installation
-Just clone the repository and run the index.js file with following command:
+Just clone the repository, install dependencies and then, run the index.js file with following command:
 
-```js
-$ node index.js
+```
+npm install # installing the dependencies
+node index.js # running the application
 ```
 
 The node application reads the `APP_PORT` and `PUBLIC_ZONE_PATH` environment variables. The default port is `3000` but you can set something else.
 
 Also, you should pass your firewalld public zone file as `PUBLIC_ZONE_PATH` environment variable value:
 
-```js
-$ APP_PORT=3000 PUBLIC_ZONE_PATH=/etc/firewalld/zones/public.xml node index.js
+```
+APP_PORT=3000 PUBLIC_ZONE_PATH=/etc/firewalld/zones/public.xml node index.js
 ```
 
 ## Authentication
