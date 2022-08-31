@@ -1,9 +1,9 @@
 # Firewalld GUI
 This repo offers a web-based GUI for managing firewalld rules such as public ports and forwarded ports.
 
-![image](https://user-images.githubusercontent.com/12012168/187709040-ac06f291-e2dd-43c8-8a1b-ff22f553bb2c.png)
+![image](https://user-images.githubusercontent.com/12012168/187710124-7e5f722d-5009-43c3-862d-2b9495364351.png)
 
-![image](https://user-images.githubusercontent.com/12012168/187709173-9ceeb5e8-6b08-4598-9c97-69f25038e782.png)
+![image](https://user-images.githubusercontent.com/12012168/187709972-7a75b94c-b899-441e-91b5-df10d640da78.png)
 
 
 ## Stack
