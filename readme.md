@@ -19,7 +19,7 @@ Be aware that this project needs write permission for `public.xml` file. It's li
 
 In the first step, copy the `.env.example` file to `.env`. Then edit the `.env` file and adjust the required parameters (`HTTP Port` and `public.xml` file path).
 
-After that, use docker compose to bring the serice up:
+After that, use docker compose to bring the ui service up:
 
 ```sh
 docker compose up -d
