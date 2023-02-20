@@ -13,13 +13,14 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
+app.get('/', (req, res) => {res.redirect(302, '/public')});
 
 app.get('/public', function(req, res){
     let openPorts = [];
     const xmlData = fs.readFileSync(publicZoneFilePath, 'utf8');
     parseString(xmlData, function (err, result) {
         if (result.zone['port'] == undefined) {
-            return res.render('forward.html', {list: []});
+            return res.render('forward.html', {list: [], tab: 'public'});
         }
 
         result.zone['port'].forEach(function(element) {
@@ -29,9 +30,9 @@ app.get('/public', function(req, res){
                 port: element['port'],
             });
         });
+        
+        res.render('public.html', {list: openPorts, tab: 'public'});
     });
-
-    res.render('public.html', {list: openPorts, tab: 'public'});
 });
 
 app.post('/public/create', function(req, res){ 
@@ -69,7 +70,7 @@ app.get('/forward', function(req, res){
     const xmlData = fs.readFileSync(publicZoneFilePath, 'utf8');
     parseString(xmlData, function (err, result) {
         if (result.zone['forward-port'] == undefined) {
-            return res.render('forward.html', {list: []});
+            return res.render('forward.html', {list: [], tab: 'forward'});
         }
 
         result.zone['forward-port'].forEach(function(element) {
@@ -81,9 +82,8 @@ app.get('/forward', function(req, res){
                 dest_ip: element['to-addr'],
             });
         });
+        res.render('forward.html', {list: forwardedPorts, tab: 'forward'});
     });
-
-    res.render('forward.html', {list: forwardedPorts, tab: 'forward'});
 });
 
 app.post('/forward/create', function(req, res){ 

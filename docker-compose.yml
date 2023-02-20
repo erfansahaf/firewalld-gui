@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+        - PUBLIC_ZONE_PATH=/usr/src/app/public.xml
+    ports: 
+        - ${HTTP_PORT}:3000
+    volumes:
+      - ${PUBLIC_ZONE_FILE_PATH}:/usr/src/app/public.xml
