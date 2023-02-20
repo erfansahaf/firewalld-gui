@@ -7,6 +7,7 @@ This repo offers a web-based GUI for managing firewalld rules such as public por
 
 
 ## Installation
+
 First of all, you need to clone the repository:
 
 `git clone git@github.com:erfansahaf/firewalld-gui.git`
