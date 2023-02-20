@@ -6,6 +6,7 @@ This repo offers a web-based GUI for managing firewalld rules such as public por
 ![image](https://user-images.githubusercontent.com/12012168/187709972-7a75b94c-b899-441e-91b5-df10d640da78.png)
 
 
+
 ## Installation
 
 First of all, you need to clone the repository:
